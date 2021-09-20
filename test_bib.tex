@@ -1,45 +1,178 @@
-\documentclass[12pt, a4paper, spanish, twoside]{article}
+%Send a message% mnras_template.tex
+%
+% LaTeX template for creating an MNRAS paper
+%
+% v3.0 released 14 May 2015
+% (version numbers match those of mnras.cls)
+%
+% Copyright (C) Royal Astronomical Society 2015
+% Authors:
+% Keith T. Smith (Royal Astronomical Society)
 
-%%% Packages %%%
+% Change log
+%
+% v3.0 May 2015
+%    Renamed to match the new package name
+%    Version number matches mnras.cls
+%    A few minor tweaks to wording
+% v1.0 September 2013
+%    Beta testing only - never publicly released
+%    First version: a simple (ish) template for creating an MNRAS paper
 
-% Page configuration and so
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Basic setup. Most papers should leave these options alone.
+\documentclass[a4paper,fleqn,usenatbib]{mnras}
+
+% MNRAS is set in Times font. If you don't have this installed (most LaTeX
+% installations will be fine) or prefer the old Computer Modern fonts, comment
+% out the following line
+\usepackage{newtxtext,newtxmath}
+\let\Bbbk\relax 
+% Depending on your LaTeX fonts installation, you might get better results with one of these:
+%\usepackage{mathptmx}
+%\usepackage{txfonts}
+
+% Use vector fonts, so it zooms properly in on-screen viewing software
+% Don't change these lines unless you know what you are doing
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+
+
+%%%%% AUTHORS - PLACE YOUR OWN PACKAGES HERE %%%%%
+
+% Only include extra packages if you really need them. Common packages are:
+\usepackage{graphicx}	% Including figure files
+\usepackage{amsmath}	% Advanced maths commands
+\usepackage{amssymb}	% Extra maths symbols
+\usepackage{multirow}
+
+%\usepackage{subcaption}
+%\usepackage{hyperref}
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath,amsfonts,amsthm,bm}
-\usepackage[margin=3.2cm,includefoot,footskip=25pt]{geometry}
-\usepackage[margin=20pt]{caption}
-\renewcommand{\figurename}{Fig.}
-\setlength{\parskip}{1em}
-\numberwithin{equation}{section}
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
+\usepackage{dutchcal}
+\usepackage{braket}
+\usepackage{grffile} % allow for weird plot filenames
+\usepackage{xspace} % smart spaces
+%\usepackage{txfonts}
 
-% Essentials
-\usepackage{graphicx} % For Figures
-\usepackage{subfigure} % subfigures
+\usepackage{pdflscape}
+\usepackage{booktabs}
 
+%\usepackage{rotating}
 
-% Style
-\usepackage{nicefrac} % Better fractions with \nicefrac{}{}
+\usepackage{ulem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Spanish babel
-\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+%%%%% AUTHORS - PLACE YOUR OWN COMMANDS HERE %%%%%
 
-%%% Commands %%%
-
-\newcommand{\E}[1]{\cdot 10^{#1}} % Scientific notation
-\newcommand{\der}[2]{\frac{\text{d}#1}{\text{d}#2}}
-
-%%% Header %%%
-
-\usepackage{fancyhdr}
-\setlength{\headheight}{20pt}
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[LE,RO]{\small Alberto Torralba Torregrosa}
-\fancyhead[RE,LO]{\small Title}
-\fancyfoot[RO,LE]{\thepage}
+% Please keep new commands to a minimum, and use \newcommand not \def to avoid
+% overwriting existing commands. Example:
+%\newcommand{\pcm}{\,cm$^{-2}$}	% per cm-squared
+\graphicspath{ {images/} }
 
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
+
+% Title of the paper, and the short title which is used in the headers.
+% Keep the title short and informative.
+\title [Ly$\alpha$ line profile fitting]{zELDA: fitting Lyman-alpha line profiles using deep learning. Analysis on 91 Lyman-alpha emitters.  }
+% Alternatives for title:
+%[RT impact on LAEs samples I : Galaxy Outflows]{Radiative Transfer impact on Lyman $\alpha$ emitters %samples I : Galaxy outflows.}
+% [Lyman$\alpha$ emitters in simulations I]{Ly-alpha radiative transfer in star-forming galaxies I: a recipe for cosmological simulations.}
+
+
+% The list of authors, and the short list which is used in the headers.
+% If you need two or more lines of authors, add an extra line using \newauthor
+%\author[K. T. Smith et al.]{
+%Keith T. Smith,$^{1}$\thanks{E-mail: mn@ras.org.uk (KTS)}
+%A. N. Other,$^{2}$
+%Third Author$^{2,3}$
+%and Fourth Author$^{3}$
+%\\
+% List of institutions
+%$^{1}$Royal Astronomical Society, Burlington House, Piccadilly, London W1J 0BQ, UK\\
+%$^{2}$Department, Institution, Street Address, City Postal Code, Country\\
+%$^{3}$Another Department, Different Institution, Street Address, City Postal Code, Country
+%}
+
+\author[asdasd]{
+asdasd\thanks{E-mail: sidgurung@cefca.es}
+}
+
+% These dates will be filled out by the publisher
+\date{Accepted XXX. Received YYY; in original form ZZZ}
+
+% Enter the current year, for the copyright statements etc.
+\pubyear{2020}
+
+% Don't change these lines
+%\hypersetup{draft}
 \begin{document}
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
 
-\nocite{*}
+% Abstract of the paper
+\begin{abstract}
 
+
+sdfsdf
+\end{abstract}
+
+% Select between one and six entries from the list of approved keywords.
+% Don't make up new ones.
+\begin{keywords}
+radiative transfer – galaxies: emission lines 
+\end{keywords}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% BODY OF PAPER %%%%%%%%%%%%%%%%%%
+
+
+A
+
+\section*{Data Availability}
+
+A\nocite{*}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%
+
+% The best way to enter references is to use BibTeX:
+
+\bibliographystyle{mnras}
+%\bibliography{ref,references_linked} % if your bibtex file is called example.bib
+\bibliography{my_bibliography}
+
+% Alternatively you could enter them by hand, like this:
+% This method is tedious and prone to error if you have lots of references
+%\begin{thebibliography}{99}
+%\bibitem[\protect\citeauthoryear{Author}{2012}]{Author2012}
+%Author A.~N., 2013, Journal of Improbable Astronomy, 1, 1
+%\bibitem[\protect\citeauthoryear{Others}{2013}]{Others2013}
+%Others S., 2012, Journal of Interesting Stuff, 17, 198
+%\end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% APPENDICES %%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+% Don't change these lines
+\bsp	% typesetting comment
+\label{lastpage}
 \end{document}
